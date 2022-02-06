@@ -110,6 +110,9 @@ function AI(){
     if(possiblePlays.length == 0){
         return;
     }
+    if(win == true){
+        return;
+    }
 
     if(Circle_Moves.length == 0){
         let index = Math.floor(Math.random() * possiblePlays.length);
