@@ -1,0 +1,221 @@
+:root{
+    --background-color: rgb(19, 2, 31);
+    --btn-color: rgb(76, 40, 104);
+
+    --border-color: rgb(148, 17, 248);
+    --undo-border-color: rgb(167, 167, 167);
+
+    --x-color: rgb(54, 187, 169);
+    --circle-color: rgb(187, 163, 54);
+
+    --cell-size: 150px;
+    --mark-size: calc(var(--cell-size) * .9);
+}
+
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+.container{
+    display: grid;
+    justify-content: center;    
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(3, calc(var(--cell-size) * 1.1));
+    grid-template-rows: 50px repeat(3, calc(var(--cell-size) * 1.1));
+}
+
+.second-container{
+    display: inline-block;
+    position: relative;
+}
+
+/* game button */
+
+.game-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-radius: 20px;
+    border-style: none none solid none;
+    border-width: calc(var(--cell-size) * .035);
+    border-color: var(--border-color);
+    background-color: var(--btn-color);
+}
+
+/* other buttons */
+
+.exp{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: 100px;
+    height: calc(var(--cell-size) * .3);
+    position: relative;
+    bottom: 10px;
+    border-radius: 15px;
+    border: none;
+}
+.images{
+    width: 50px;
+}
+.turn{
+    width: 150px;
+    position: relative;
+}
+.undo{
+    width: calc(var(--cell-size) / 2.6);
+    position: relative;
+    left: calc(var(--cell-size) / 1.65);
+}
+
+/* counters */
+
+.counter{
+    width: var(--cell-size);
+    height: calc(var(--cell-size) * .5);
+    border-radius: 20px;
+    border: none;
+}
+.blue{
+    background-color: var(--x-color);
+}
+.orange{
+    background-color: var(--circle-color);
+}
+.gray{
+    background-color: gray;
+}
+.background-color{
+    background-color: var(--background-color);
+}
+
+/* marks */
+
+/* x */
+
+.x::before, .x::after{
+    content: '';
+    width: calc(var(--mark-size) * .20);
+    height: calc(var(--mark-size) * .75);
+    position: absolute;
+    background-color: var(--x-color);
+}
+
+.x::before{
+    transform: rotate(45deg);
+}
+
+.x::after{
+    transform: rotate(-45deg);
+}
+
+/* circle */
+
+.circle::before, .circle::after{
+    content: '';
+    width: calc(var(--mark-size) * .75);
+    height: calc(var(--mark-size) * .75);
+    position: absolute;
+    background-color: var(--circle-color);
+    border-radius: 50%;
+}
+
+.circle::after{
+    width: calc(var(--mark-size) * .38);
+    height: calc(var(--mark-size) * .38);
+    background-color: var(--btn-color);
+}
+
+/* images */
+
+.images.x::before, .images.x::after{
+    width: 45px;
+    height: 15px;
+    position: absolute;
+}
+
+.images.circle::before, .images.circle::after{
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    background-color: var(--circle-color);
+}
+.images.circle::after{
+    width: 20px;
+    height: 20px;
+    background-color: var(--background-color);
+}
+
+/* tests */
+
+.u-symbol{
+    position: absolute;
+    height: 25px;
+}
+.undo{
+    border-style: none none solid none;
+    border-width: calc(var(--cell-size) * .035);
+    border-color: var(--undo-border-color);
+}
+
+/* turn */
+
+.turn{
+    border-style: none none solid none;
+    border-width: calc(var(--cell-size) * .035);
+    border-color: var(--undo-border-color);
+
+    font-size: 15px;
+    font-weight: bold;
+
+    display: grid;
+    justify-content: flex-end;    
+    align-content: center;
+    grid-template-columns: 50px 30px;
+}
+
+.turn.x::before, .turn.x::after{
+    left: 20px;
+    height: 10px;
+    width: 35px;
+}
+
+.turn.circle::before, .turn.circle::after{
+    left: 25px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--circle-color);
+}
+
+.turn.circle::after{
+    left: 33px;
+    width: 15px;
+    height: 15px;
+    background-color: gray;
+}
+
+/* score */
+
+.score{
+    position: relative;
+    bottom: 15px;
+}
+
+/* switcher */
+
+.switcher{
+    height: 50px;
+}
