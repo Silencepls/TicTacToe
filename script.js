@@ -62,7 +62,7 @@ function Start(){
         undo.addEventListener('click', () => { 
             Start(); 
             if(!yourTurn){
-                setTimeout(AI, 700);
+                setTimeout(AI, 100);
             }
         });
         firstTime = !firstTime;
