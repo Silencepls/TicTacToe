@@ -95,7 +95,7 @@ function Clicked(e){
     }
     yourTurn = !yourTurn;
     turnCheck();
-    setTimeout(AI, 700);
+    setTimeout(AI, 100);
 }
 
 function AI(){
